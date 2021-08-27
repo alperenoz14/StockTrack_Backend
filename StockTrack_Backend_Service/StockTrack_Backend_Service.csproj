@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StockTrack_Backed_Core\StockTrack_Backed_Core.csproj" />
+    <ProjectReference Include="..\StockTrack_Backend_Data\StockTrack_Backend_Data.csproj" />
+  </ItemGroup>
+
+</Project>
