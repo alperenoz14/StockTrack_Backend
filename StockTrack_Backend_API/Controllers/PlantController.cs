@@ -14,14 +14,19 @@ namespace StockTrack_Backend_API.Controllers
     public class PlantController : ControllerBase
     {
         private readonly IPlantService _plantService;
-        public PlantController(IPlantService plantService)
+        private readonly ExternalRequests.ExternalRequestService _exService;
+        public PlantController(IPlantService plantService,ExternalRequests.ExternalRequestService exService)
         {
             _plantService = plantService;
+            _exService = exService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllPlants()
         {
+
+            //var result = _exService.getOrganizations();
+
             var plants = await _plantService.GetAllPlantsAsync();
 
             if (plants is not null) { return Ok(plants); } else { return StatusCode(500); }

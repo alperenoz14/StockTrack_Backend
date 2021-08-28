@@ -15,6 +15,7 @@ using StockTrack_Backend_Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace StockTrack_Backend_API
@@ -38,6 +39,9 @@ namespace StockTrack_Backend_API
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IPlantService, PlantService>();
             services.AddScoped<IOrderService, OrderService>();
+            
+            services.AddScoped<HttpClient>();
+            services.AddHttpClient<ExternalRequests.ExternalRequestService>();
 
 
             services.AddControllers();
