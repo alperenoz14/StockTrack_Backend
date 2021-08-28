@@ -28,10 +28,10 @@ namespace StockTrack_Backend_API.Controllers
             
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPlantById(int id)
+        [HttpGet("{plantId}")]
+        public async Task<IActionResult> GetPlantByPlantId(int plantId)
         {
-            var plant = await _plantService.GetPlantByIdAsync(id);
+            var plant = await _plantService.GetPlantByPlantIdAsync(plantId);
 
             if (plant is not null) { return Ok(plant); } else { return NotFound(); }
 

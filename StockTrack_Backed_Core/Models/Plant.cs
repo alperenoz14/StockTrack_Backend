@@ -9,6 +9,7 @@ namespace StockTrack_Backed_Core.Models
     {
 
         public int ID { get; set; }
+        public int PlantId { get; set; }
 
         public string Name { get; set; }
 

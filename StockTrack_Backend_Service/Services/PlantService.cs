@@ -25,9 +25,9 @@ namespace StockTrack_Backend_Service.Services
             return await _plantRepository.GetAllPlantsAsync();
         }
 
-        public async Task<Plant> GetPlantByIdAsync(int plantId)
+        public async Task<Plant> GetPlantByPlantIdAsync(int plantId)
         {
-            return await _plantRepository.GetPlantByIdAsync(plantId);
+            return await _plantRepository.GetPlantByPlantIdAsync(plantId);
         }
     }
 }

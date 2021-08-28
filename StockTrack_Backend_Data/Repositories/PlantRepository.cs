@@ -31,9 +31,9 @@ namespace StockTrack_Backend_Data.Repositories
             return await _context.Plants.ToListAsync();
         }
 
-        public async Task<Plant> GetPlantByIdAsync(int plantId)
+        public async Task<Plant> GetPlantByPlantIdAsync(int plantId)
         {
-            return await _context.Plants.FindAsync(plantId);
+            return await _context.Plants.SingleOrDefaultAsync(x => x.PlantId == plantId);
         }
     }
 }

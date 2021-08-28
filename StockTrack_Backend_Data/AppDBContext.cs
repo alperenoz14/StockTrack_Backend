@@ -23,6 +23,8 @@ namespace StockTrack_Backend_Data
         {
             modelBuilder.Entity<Plant>().HasKey(x => x.ID);
             modelBuilder.Entity<Plant>().Property(x => x.ID).UseIdentityColumn();
+            modelBuilder.Entity<Plant>().HasMany(x => x.Orders).WithOne(x => x.Plant)       //!!!!!!
+                .HasPrincipalKey(x => x.PlantId).HasForeignKey(x => x.PlantId);
             modelBuilder.Entity<Plant>().Property(x => x.Name).IsRequired();
             modelBuilder.Entity<Plant>().Property(x => x.OrganizationETSOCode).IsRequired();
             modelBuilder.Entity<Plant>().Property(x => x.EIC).IsRequired();

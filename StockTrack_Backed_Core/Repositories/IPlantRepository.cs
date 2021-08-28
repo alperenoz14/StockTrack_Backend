@@ -9,7 +9,7 @@ namespace StockTrack_Backed_Core.Repositories
     public interface IPlantRepository
     {
         Task<List<Plant>> GetAllPlantsAsync();
-        Task<Plant> GetPlantByIdAsync(int plantId);
+        Task<Plant> GetPlantByPlantIdAsync(int plantId);
         Task<List<Plant>> AddPlantsAsync(List<Plant> plants);
 
     }
