@@ -7,7 +7,7 @@ namespace StockTrack_Backend_API.ExternalRequests.ExternalrequestModels
 {
     public class dppInjectionUnitnameResponse
     {
-        public Body Body { get; set; }
+        public BodyInjectionUnits Body { get; set; }
         public int ResultCode { get; set; }
         public string ResultDescription { get; set; }
     }

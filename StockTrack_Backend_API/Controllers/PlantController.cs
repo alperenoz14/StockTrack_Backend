@@ -15,7 +15,7 @@ namespace StockTrack_Backend_API.Controllers
     {
         private readonly IPlantService _plantService;
         private readonly ExternalRequests.ExternalRequestService _exService;
-        public PlantController(IPlantService plantService,ExternalRequests.ExternalRequestService exService)
+        public PlantController(IPlantService plantService, ExternalRequests.ExternalRequestService exService)
         {
             _plantService = plantService;
             _exService = exService;
@@ -25,12 +25,10 @@ namespace StockTrack_Backend_API.Controllers
         public async Task<IActionResult> GetAllPlants()
         {
 
-            //var result = _exService.getOrganizations();
-
             var plants = await _plantService.GetAllPlantsAsync();
 
             if (plants is not null) { return Ok(plants); } else { return StatusCode(500); }
-            
+
         }
 
         [HttpGet("{plantId}")]
@@ -45,9 +43,31 @@ namespace StockTrack_Backend_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPlants(List<Plant> plants)
         {
+            var result = await _exService.getOrganizations();
+
             var addedPlants = await _plantService.AddPlantsAsync(plants);
 
             if (addedPlants is not null) { return Ok(addedPlants); } else { return StatusCode(500); }
+        }
+
+
+        [HttpPost]
+        [Route("SyncPlants")]
+        public async Task<IActionResult> SyncPlants()
+        {
+            var plants = new List<Plant>();
+
+            var result = await _exService.getOrganizations();
+
+            foreach (var item in result)
+            {
+                var plant = new Plant() { PlantId = item.id, Name = item.name, EIC = item.eic, OrganizationETSOCode = item.organizationETSOCode };
+                plants.Add(plant);
+            }
+            var addedPlants = await _plantService.AddPlantsAsync(plants);
+
+            if (addedPlants is not null) { return Ok(addedPlants); } else { return StatusCode(500); }
+
         }
     }
 }

@@ -18,6 +18,8 @@ namespace StockTrack_Backend_API.ExternalRequests
 
         public async Task<List<InjectionUnitNames>> getOrganizations()
         {
+            var plants = new List<InjectionUnitNames>();
+
             var response = await _httpClient.GetAsync("https://seffaflik.epias.com.tr/transparency/service/production/dpp-organization");
             var units = new List<InjectionUnitNames>();
             if (response.IsSuccessStatusCode)
@@ -34,11 +36,16 @@ namespace StockTrack_Backend_API.ExternalRequests
                         var resultdata = await res.Content.ReadAsStringAsync();
                         var finaldata = JsonConvert.DeserializeObject<dppInjectionUnitnameResponse>(resultdata);
 
+                        foreach (var unit in finaldata.Body.injectionUnitNames)
+                        {
+                            unit.organizationETSOCode = item.organizationETSOCode;
+                            plants.Add(unit);
+                        }
                     }
                 }
 
             }
-            return units;
+            return plants;
         }
     }
 }

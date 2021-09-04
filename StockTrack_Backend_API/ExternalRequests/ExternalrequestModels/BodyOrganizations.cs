@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace StockTrack_Backend_API.ExternalRequests.ExternalrequestModels
 {
-    public class OrganizationResponse
+    public class BodyOrganizations
     {
-        public BodyOrganizations Body { get; set; }
-        public int ResultCode { get; set; }
-        public string ResultDescription { get; set; }
+        public List<Organizations> Organizations { get; set; }      //property isimleri önemli! class ismi değil. //body diye bir sınıf daha olustur.
     }
 }

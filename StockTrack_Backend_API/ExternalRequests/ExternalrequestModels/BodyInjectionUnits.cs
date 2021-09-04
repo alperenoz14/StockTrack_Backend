@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace StockTrack_Backend_API.ExternalRequests.ExternalrequestModels
 {
-    public class Body
+    public class BodyInjectionUnits
     {
-        public List<Organizations> Organizations { get; set; }
-        public List<InjectionUnitNames> InjectionUnitNames { get; set; }
+        public List<InjectionUnitNames> injectionUnitNames { get; set; }
     }
 }
