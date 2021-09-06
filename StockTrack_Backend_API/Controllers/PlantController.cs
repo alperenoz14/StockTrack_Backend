@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StockTrack_Backed_Core.Models;
 using StockTrack_Backed_Core.Services;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace StockTrack_Backend_API.Controllers
 {
+
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PlantController : ControllerBase

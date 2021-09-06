@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using StockTrack_Backed_Core.Repositories;
 using StockTrack_Backed_Core.Services;
+using StockTrack_Backend_API.Helpers;
 using StockTrack_Backend_Data;
 using StockTrack_Backend_Data.Repositories;
 using StockTrack_Backend_Service.Services;
@@ -39,10 +41,16 @@ namespace StockTrack_Backend_API
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IPlantService, PlantService>();
             services.AddScoped<IOrderService, OrderService>();
-            
+            services.AddScoped<JWTService>();
+
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+            //    options.LoginPath = "/User/Login";
+            //});
+
             services.AddScoped<HttpClient>();
             services.AddHttpClient<ExternalRequests.ExternalRequestService>();
 
+            services.AddCors();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -65,8 +73,16 @@ namespace StockTrack_Backend_API
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors(options => options
+            .WithOrigins(new[] { "http://localhost:3000" })
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .SetIsOriginAllowed(origin =>true)
+            );
 
+            app.UseAuthorization();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

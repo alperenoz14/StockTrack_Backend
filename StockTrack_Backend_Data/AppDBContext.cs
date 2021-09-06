@@ -18,6 +18,7 @@ namespace StockTrack_Backend_Data
         public DbSet<Plant> Plants { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +39,10 @@ namespace StockTrack_Backend_Data
             modelBuilder.Entity<Order>().Property(x => x.ProductId).IsRequired();
             modelBuilder.Entity<Order>().Property(x => x.PlantId).IsRequired();
             modelBuilder.Entity<Order>().Property(x => x.UnitPrice).IsRequired();
+
+            //modelBuilder.Entity<User>().HasKey(x => x.ID);
+            //modelBuilder.Entity<User>().Property(x => x.ID).UseIdentityColumn();
+            //modelBuilder.Entity<User>().Property(x => x.Name).IsRequired();
         }
     }
 }
