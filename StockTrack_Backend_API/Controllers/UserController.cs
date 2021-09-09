@@ -89,7 +89,7 @@ namespace StockTrack_Backend_API.Controllers
             }
             catch (Exception _)
             {
-                return Unauthorized();
+                return Unauthorized(_);
             }
         }
 

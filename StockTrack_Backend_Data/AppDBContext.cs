@@ -11,7 +11,7 @@ namespace StockTrack_Backend_Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-NNE3V2L\MSSQLDATABASE;Database=StockTrackDB;Trusted_Connection=True",
+            optionsBuilder.UseSqlServer(@"Data Source=192.168.1.105,1433;Initial Catalog=StockTrackDB;User ID=sa;Password=alperen123;TrustServerCertificate=False",      //dockerın anlayacağı şekilde conf.
                 opt => opt.MigrationsAssembly("StockTrack_Backend_Data"));
         }
 

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  stocktrack_backend_api:
+    image: ${DOCKER_REGISTRY-}stocktrackbackendapi
+    build:
+      context: .
+      dockerfile: StockTrack_Backend_API/Dockerfile

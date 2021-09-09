@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrack_Backend_API", "StockTrack_Backend_API\StockTrack_Backend_API.csproj", "{180F83D2-9C12-44E9-A75E-151B52A7885C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrack_Backend_API", "StockTrack_Backend_API\StockTrack_Backend_API.csproj", "{180F83D2-9C12-44E9-A75E-151B52A7885C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrack_Backed_Core", "StockTrack_Backed_Core\StockTrack_Backed_Core.csproj", "{F4EC92F7-EED7-4BB6-9ABE-31806F2ED1C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrack_Backed_Core", "StockTrack_Backed_Core\StockTrack_Backed_Core.csproj", "{F4EC92F7-EED7-4BB6-9ABE-31806F2ED1C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrack_Backend_Data", "StockTrack_Backend_Data\StockTrack_Backend_Data.csproj", "{EFDA7FFE-075D-4FD2-A747-E3CA30673011}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrack_Backend_Data", "StockTrack_Backend_Data\StockTrack_Backend_Data.csproj", "{EFDA7FFE-075D-4FD2-A747-E3CA30673011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockTrack_Backend_Service", "StockTrack_Backend_Service\StockTrack_Backend_Service.csproj", "{D9284CC6-88C4-4CE3-8EA9-94D1AD5784CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockTrack_Backend_Service", "StockTrack_Backend_Service\StockTrack_Backend_Service.csproj", "{D9284CC6-88C4-4CE3-8EA9-94D1AD5784CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
